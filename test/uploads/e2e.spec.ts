@@ -515,6 +515,8 @@ describe('Uploads', () => {
 
     const loadFromFileButton = page.locator('#load-from-file-upload-button')
     await loadFromFileButton.click()
+    await wait(1000)
+    await page.waitForSelector('button#action-save')
     await page.locator('#action-save').click()
     await expect(page.locator('.payload-toast-container')).toContainText('successfully')
   })
@@ -524,6 +526,8 @@ describe('Uploads', () => {
 
     const loadFromUrlButton = page.locator('#load-from-url-upload-button')
     await loadFromUrlButton.click()
+    await wait(1000)
+    await page.waitForSelector('button#action-save')
     await page.locator('#action-save').click()
     await expect(page.locator('.payload-toast-container')).toContainText('successfully')
   })
